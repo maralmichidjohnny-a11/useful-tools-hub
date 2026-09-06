@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>⏱️ Stopwatch</h1>
+    <p>Measure time with a simple stopwatch.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <h2 id="display">00:00:00</h2>
+
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="pauseStopwatch()">Pause</button>
+        <button onclick="resetStopwatch()">Reset</button>
+
+        <br><br>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+
+let seconds = 0;
+let stopwatch = null;
+
+function startStopwatch() {
+
+    if (stopwatch !== null) {
+        return;
+    }
+
+    stopwatch = setInterval(function() {
+        seconds++;
+        updateDisplay();
+    }, 1000);
+}
+
+function pauseStopwatch() {
+    clearInterval(stopwatch);
+    stopwatch = null;
+}
+
+function resetStopwatch() {
+    clearInterval(stopwatch);
+    stopwatch = null;
+    seconds = 0;
+    updateDisplay();
+}
+
+function updateDisplay() {
+
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+
+    document.getElementById("display").textContent =
+        String(hours).padStart(2, "0") + ":" +
+        String(minutes).padStart(2, "0") + ":" +
+        String(secs).padStart(2, "0");
+}
+
+</script>
+
+</body>
+</html>

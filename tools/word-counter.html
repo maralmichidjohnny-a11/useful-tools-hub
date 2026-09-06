@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>📝 Word & Character Counter</h1>
+    <p>Count words, characters, sentences and paragraphs.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <textarea
+            id="text"
+            rows="10"
+            placeholder="Type or paste your text here..."
+            oninput="countText()"
+        ></textarea>
+
+        <br><br>
+
+        <p><strong>Words:</strong> <span id="words">0</span></p>
+        <p><strong>Characters:</strong> <span id="characters">0</span></p>
+        <p><strong>Characters without spaces:</strong> <span id="charactersNoSpaces">0</span></p>
+        <p><strong>Sentences:</strong> <span id="sentences">0</span></p>
+        <p><strong>Paragraphs:</strong> <span id="paragraphs">0</span></p>
+
+        <br>
+
+        <button onclick="clearText()">Clear</button>
+
+        <br><br>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+function countText() {
+    const text = document.getElementById("text").value;
+
+    const trimmedText = text.trim();
+
+    const words = trimmedText
+        ? trimmedText.split(/\s+/).length
+        : 0;
+
+    const characters = text.length;
+
+    const charactersNoSpaces =
+        text.replace(/\s/g, "").length;
+
+    const sentences = trimmedText
+        ? (trimmedText.match(/[.!?]+(?=\s|$)/g) || []).length
+        : 0;
+
+    const paragraphs = trimmedText
+        ? trimmedText.split(/\n\s*\n/).filter(p => p.trim()).length
+        : 0;
+
+    document.getElementById("words").textContent = words;
+    document.getElementById("characters").textContent = characters;
+    document.getElementById("charactersNoSpaces").textContent = charactersNoSpaces;
+    document.getElementById("sentences").textContent = sentences;
+    document.getElementById("paragraphs").textContent = paragraphs;
+}
+
+function clearText() {
+    document.getElementById("text").value = "";
+    countText();
+}
+</script>
+
+</body>
+</html>

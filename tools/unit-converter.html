@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>📏 Unit Converter</h1>
+    <p>Convert common units quickly.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <label for="conversion">Choose conversion:</label>
+
+        <select id="conversion">
+            <option value="km-miles">Kilometres → Miles</option>
+            <option value="miles-km">Miles → Kilometres</option>
+            <option value="kg-lb">Kilograms → Pounds</option>
+            <option value="lb-kg">Pounds → Kilograms</option>
+            <option value="c-f">Celsius → Fahrenheit</option>
+            <option value="f-c">Fahrenheit → Celsius</option>
+        </select>
+
+        <input
+            type="number"
+            id="value"
+            placeholder="Enter a value"
+        >
+
+        <button onclick="convertUnit()">Convert</button>
+
+        <h2 id="result">Result: --</h2>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+function convertUnit() {
+    const conversion = document.getElementById("conversion").value;
+    const input = document.getElementById("value").value;
+
+    if (input === "") {
+        document.getElementById("result").textContent =
+            "Please enter a value.";
+        return;
+    }
+
+    const value = Number(input);
+    let result;
+
+    if (conversion === "km-miles") {
+        result = value * 0.621371;
+    } else if (conversion === "miles-km") {
+        result = value * 1.60934;
+    } else if (conversion === "kg-lb") {
+        result = value * 2.20462;
+    } else if (conversion === "lb-kg") {
+        result = value / 2.20462;
+    } else if (conversion === "c-f") {
+        result = (value * 9 / 5) + 32;
+    } else if (conversion === "f-c") {
+        result = (value - 32) * 5 / 9;
+    }
+
+    document.getElementById("result").textContent =
+        "Result: " + result.toFixed(2);
+}
+</script>
+
+</body>
+</html>

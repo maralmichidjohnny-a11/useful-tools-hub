@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🎓 Grade Calculator</h1>
+    <p>Calculate your percentage from your score.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <label for="score">Your score:</label>
+        <input
+            type="number"
+            id="score"
+            placeholder="Example: 42"
+        >
+
+        <label for="total">Total possible marks:</label>
+        <input
+            type="number"
+            id="total"
+            placeholder="Example: 50"
+        >
+
+        <button onclick="calculateGrade()">Calculate Grade</button>
+
+        <h2 id="result">Grade: --</h2>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+
+function calculateGrade() {
+
+    const score = Number(document.getElementById("score").value);
+    const total = Number(document.getElementById("total").value);
+
+    if (total <= 0) {
+        document.getElementById("result").textContent =
+            "Please enter a valid total.";
+        return;
+    }
+
+    const percentage = (score / total) * 100;
+
+    document.getElementById("result").textContent =
+        "Grade: " + percentage.toFixed(1) + "%";
+}
+
+</script>
+
+</body>
+</html>

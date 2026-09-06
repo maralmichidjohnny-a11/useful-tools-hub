@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Case Converter | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🔤 Text Case Converter</h1>
+    <p>Quickly change the capitalization of your text.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <textarea
+            id="text"
+            rows="10"
+            placeholder="Type or paste your text here..."
+        ></textarea>
+
+        <br><br>
+
+        <button onclick="upperCase()">UPPERCASE</button>
+        <button onclick="lowerCase()">lowercase</button>
+        <button onclick="titleCase()">Title Case</button>
+        <button onclick="sentenceCase()">Sentence case</button>
+
+        <br><br>
+
+        <button onclick="copyText()">Copy Text</button>
+        <button onclick="clearText()">Clear</button>
+
+        <br><br>
+
+        <p id="message"></p>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+
+function upperCase() {
+    const box = document.getElementById("text");
+    box.value = box.value.toUpperCase();
+}
+
+function lowerCase() {
+    const box = document.getElementById("text");
+    box.value = box.value.toLowerCase();
+}
+
+function titleCase() {
+    const box = document.getElementById("text");
+
+    box.value = box.value
+        .toLowerCase()
+        .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function sentenceCase() {
+    const box = document.getElementById("text");
+    const text = box.value.toLowerCase();
+
+    box.value = text.replace(
+        /(^\s*\w|[.!?]\s+\w)/g,
+        letter => letter.toUpperCase()
+    );
+}
+
+function clearText() {
+    document.getElementById("text").value = "";
+    document.getElementById("message").textContent = "";
+}
+
+function copyText() {
+    const text = document.getElementById("text").value;
+
+    navigator.clipboard.writeText(text);
+
+    document.getElementById("message").textContent =
+        "✓ Text copied!";
+}
+
+</script>
+
+</body>
+</html>

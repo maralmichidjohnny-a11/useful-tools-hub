@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculator | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>📅 Date Difference Calculator</h1>
+    <p>Find the number of days between two dates.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <label for="startDate">Start date:</label>
+        <input type="date" id="startDate">
+
+        <label for="endDate">End date:</label>
+        <input type="date" id="endDate">
+
+        <button onclick="calculateDays()">Calculate</button>
+
+        <h2 id="result">Difference: --</h2>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+
+function calculateDays() {
+    const startInput = document.getElementById("startDate").value;
+    const endInput = document.getElementById("endDate").value;
+
+    if (!startInput || !endInput) {
+        document.getElementById("result").textContent =
+            "Please choose both dates.";
+        return;
+    }
+
+    const start = new Date(startInput + "T00:00:00");
+    const end = new Date(endInput + "T00:00:00");
+
+    const difference = Math.abs(end - start);
+
+    const days = Math.round(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("result").textContent =
+        "Difference: " + days + " days";
+}
+
+</script>
+
+</body>
+</html>

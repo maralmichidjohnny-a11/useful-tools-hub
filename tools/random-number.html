@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🎲 Random Number Generator</h1>
+    <p>Generate a random number between two numbers.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <h2>Choose your range</h2>
+
+        <br>
+
+        <input id="minimum" type="number" placeholder="Minimum">
+
+        <input id="maximum" type="number" placeholder="Maximum">
+
+        <button onclick="generateNumber()">Generate</button>
+
+        <h2 id="result"></h2>
+
+        <br>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+function generateNumber() {
+
+    const min = Math.ceil(
+        Number(document.getElementById("minimum").value)
+    );
+
+    const max = Math.floor(
+        Number(document.getElementById("maximum").value)
+    );
+
+    if (min > max) {
+        document.getElementById("result").textContent =
+            "Minimum must be smaller than maximum.";
+        return;
+    }
+
+    const randomNumber =
+        Math.floor(Math.random() * (max - min + 1)) + min;
+
+    document.getElementById("result").textContent =
+        "Random Number: " + randomNumber;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🧮 Percentage Calculator</h1>
+    <p>Calculate percentages quickly and easily.</p>
+</header>
+
+<main>
+    <div class="tool">
+        <h2>What is X% of Y?</h2>
+
+        <br>
+
+        <input
+            id="percentage"
+            type="number"
+            placeholder="Enter percentage"
+        >
+
+        <input
+            id="number"
+            type="number"
+            placeholder="Enter number"
+        >
+
+        <button onclick="calculatePercentage()">
+            Calculate
+        </button>
+
+        <h2 id="result"></h2>
+
+        <br>
+
+        <a href="../index.html">← Back to all tools</a>
+    </div>
+</main>
+
+<script>
+function calculatePercentage() {
+    const percentage =
+        Number(document.getElementById("percentage").value);
+
+    const number =
+        Number(document.getElementById("number").value);
+
+    const answer = (percentage / 100) * number;
+
+    document.getElementById("result").textContent =
+        "Answer: " + answer;
+}
+</script>
+
+</body>
+</html>

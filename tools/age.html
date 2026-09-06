@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator | Useful Tools Hub</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🎂 Age Calculator</h1>
+    <p>Find out your exact age.</p>
+</header>
+
+<main>
+    <div class="tool">
+
+        <h2>Enter your date of birth</h2>
+
+        <br>
+
+        <input type="date" id="birthdate">
+
+        <button onclick="calculateAge()">
+            Calculate Age
+        </button>
+
+        <h2 id="result"></h2>
+
+        <br>
+
+        <a href="../index.html">← Back to all tools</a>
+
+    </div>
+</main>
+
+<script>
+function calculateAge() {
+
+    const birthInput =
+        document.getElementById("birthdate").value;
+
+    if (!birthInput) {
+        document.getElementById("result").textContent =
+            "Please enter your date of birth.";
+        return;
+    }
+
+    const birthDate = new Date(birthInput + "T00:00:00");
+    const today = new Date();
+
+    if (birthDate > today) {
+        document.getElementById("result").textContent =
+            "Please enter a valid date of birth.";
+        return;
+    }
+
+    let years =
+        today.getFullYear() - birthDate.getFullYear();
+
+    let months =
+        today.getMonth() - birthDate.getMonth();
+
+    let days =
+        today.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+
+        const previousMonth =
+            new Date(today.getFullYear(), today.getMonth(), 0);
+
+        days += previousMonth.getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    document.getElementById("result").textContent =
+        `You are ${years} years, ${months} months and ${days} days old.`;
+}
+</script>
+
+</body>
+</html>
