@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Tools Hub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+    <a class="nav-logo" href="index.html">Useful Tools Hub</a>
+
+    <div class="nav-links">
+        <a href="#tools">Tools</a>
+        <a href="#about">About</a>
+        <button onclick="toggleDarkMode()">🌙</button>
+    </div>
+</nav>
+
+    <header>
+        <h1>Useful Tools Hub</h1>
+        <p>Free tools for everyday life.</p>
+    </header>
+
+    <main>
+        <h2>Our Tools</h2>
+        <div class="search-box">
+    <span>🔍</span>
+    <input
+        type="text"
+        id="toolSearch"
+        placeholder="Search for a tool..."
+        onkeyup="searchTools()"
+    >
+</div>
+<div class="categories">
+    <button onclick="filterTools('all')">All</button>
+    <button onclick="filterTools('calculator')">Calculators</button>
+    <button onclick="filterTools('text')">Text Tools</button>
+    <button onclick="filterTools('time')">Time Tools</button>
+</div>
+        <div class="tools" id="tools">
+            <div class="tool">
+                <h3>Percentage Calculator</h3>
+                <p>Calculate percentages quickly.</p>
+                <a href="tools/percentage.html">
+    <button>Open Tool</button>
+</a>
+            </div>
+
+            <div class="tool">
+                <h3>Age Calculator</h3>
+                <p>Calculate your exact age.</p>
+                <a href="tools/age.html">
+    <button>Open Tool</button>
+</a>
+            </div>
+
+            <div class="tool" data-category="text">
+                <h3>Word Counter</h3>
+                <p>Count words and characters.</p>
+                <a href="tools/word-counter.html">
+    <button>Open Tool</button>
+</a>
+ </div>
+ <div class="tool" data-category="text">
+    <h3>Text Case Converter</h3>
+    <p>Convert text to uppercase, lowercase and more.</p>
+
+    <a href="tools/case-converter.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+<div class="tool" data-category="calculator">
+    <h3>Random Number Generator</h3>
+    <p>Generate a random number between two numbers.</p>
+
+    <a href="tools/random-number.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+<div class="tool" data-category="time">
+    <h3>⏱️ Countdown Timer</h3>
+    <p>Set a timer for minutes and seconds.</p>
+
+    <a href="tools/countdown.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+<div class="tool" data-category="calculator">
+    <h3>📏 Unit Converter</h3>
+    <p>Convert distance, weight and temperature units.</p>
+
+    <a href="tools/unit-converter.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+<div class="tool" data-category="calculator">
+    <h3>🎓 Grade Calculator</h3>
+    <p>Calculate your grade percentage from your score.</p>
+
+    <a href="tools/grade-calculator.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+<div class="tool" data-category="time">
+    <h3>📅 Date Difference Calculator</h3>
+    <p>Find the number of days between two dates.</p>
+
+    <a href="tools/date-calculator.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+<div class="tool" data-category="time">
+    <h3>⏱️ Stopwatch</h3>
+    <p>Start, pause and reset a simple stopwatch.</p>
+
+    <a href="tools/stopwatch.html">
+        <button>Open Tool</button>
+    </a>
+</div>
+</div>
+    </main>
+<section id="about" class="about">
+    <h2>About Useful Tools Hub</h2>
+
+    <p>
+        Useful Tools Hub is a collection of free online tools
+        designed to make everyday tasks quicker and easier.
+    </p>
+
+    <p>
+        No sign-up required. Just choose a tool and use it.
+    </p>
+</section>
+    <footer>
+        <p>© 2026 Useful Tools Hub</p>
+        <a href="privacy.html">Privacy Policy</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
